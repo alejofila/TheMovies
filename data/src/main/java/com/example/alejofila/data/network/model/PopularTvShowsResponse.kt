@@ -9,9 +9,10 @@ data class PopularTvShowsResponse(
     val results: List<TvShow>
 )
 data class TvShow(val name: String,
+                  @SerializedName("vote_average")
                   val rating: Double,
                   val id: Int,
                   val overview: String,
                   @SerializedName("poster_path")
-                  val coverImage: String)
+                  val coverImage: String?)
 

@@ -3,18 +3,19 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion compile_sdk_version
 
-
+    compileOptions {
+        targetCompatibility = "8"
+        sourceCompatibility = "8"
+    }
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 27
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -38,12 +39,10 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-    // optional - RxJava support for Room
-    api "android.arch.persistence.room:rxjava2:$room_version"
-    implementation project(path: ':domain')
-    implementation 'org.apache.directory.studio:org.apache.commons.io:2.4'
-    implementation 'org.apache.commons:commons-text:1.6'
+    implementation 'com.google.code.gson:gson:2.8.5'
 
+    implementation project(path: ':domain')
+    implementation 'org.apache.commons:commons-text:1.6'
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:2.23.0'
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
