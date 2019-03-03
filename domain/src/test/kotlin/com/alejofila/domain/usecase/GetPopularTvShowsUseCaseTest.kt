@@ -34,8 +34,8 @@ class GetNewsUseCaseTest {
     }
     @Test
     fun `test getting list of multiple tv shows`() {
-        val tvShow = mock(TvShow::class.java)
-        val tvShow2 =  mock(TvShow::class.java)
+        val tvShow = TvShow("blabla",2.2,1,"asdasdasd","/a7asd7asd")
+        val tvShow2 =  TvShow("blablasdaa",2.5,1,"asda12sdaasdsd","/a7asdasd7asd")
         val list = listOf(tvShow, tvShow2)
         val page = ArgumentMatchers.anyInt()
         Mockito.`when`(repository.getTopTvShows(page)).thenReturn(Single.just(list))
