@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TheMovies</string>
+    <string name="no_more_shows">No more shows to load</string>
+    <string name="server_error">There is an issue with TMDB server, contact them</string>
 </resources>
