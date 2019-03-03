@@ -9,8 +9,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 const val API_URL = "https://api.themoviedb.org/3/"
 const val API_KEY = "5d967c7c335764f39b1efbe9c5de9760"
+const val BASE_URL_POSTER = "https://image.tmdb.org/t/p/w342"
 
-object  TvShowService{
+object TvShowService {
     fun getTVShowsApi(): TvShowsApi {
         val requestInterceptor = Interceptor { chain ->
             val url = chain.request()
@@ -33,5 +34,9 @@ object  TvShowService{
             .client(client)
             .build()
         return retrofit.create(TvShowsApi::class.java)
+    }
+
+    fun getPosterPath(posterPath: String): String {
+        return BASE_URL_POSTER + posterPath
     }
 }
