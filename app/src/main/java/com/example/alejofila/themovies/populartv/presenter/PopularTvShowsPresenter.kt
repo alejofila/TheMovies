@@ -16,7 +16,7 @@ class PopularTvShowsPresenter(
 ) :
     BasePresenter(mainScheduler = mainScheduler, backgroundScheduler = backgroundScheduler) {
     lateinit var view: PopularTvShowsView
-    private var page = 1
+    var page = 1
     override fun onStart() {
 
     }

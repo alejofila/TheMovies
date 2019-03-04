@@ -56,4 +56,17 @@ class PopularTvShowsPresenterTest {
         testScheduler.triggerActions()
         Mockito.verify(view, VerificationModeFactory.times(1))?.showEmptyView()
     }
+    @Test
+    fun `when page is more than total pages should call showNoMoreShowsMessage`(){
+        presenter.page = 812812
+        presenter.queryPopularTvShows()
+        testScheduler.triggerActions()
+        Mockito.verify(view, VerificationModeFactory.times(1))?.showNoMoreShowsMessage()
+    }
+    @Test(expected = Exception::class)
+    fun `when repository throws an exception should call showServerError`(){
+        Mockito.`when`(repository.getTopTvShows(1)).thenThrow(Exception())
+        testScheduler.triggerActions()
+        Mockito.verify(view, VerificationModeFactory.times(1))?.showServerError()
+    }
 }
