@@ -31,7 +31,7 @@ val appModule = module{
     single<GetPopularTvShowsUseCase>{ GetPopularTvShowsUseCaseImpl(get()) }
     single<Scheduler>(MAIN_SCHEDULER){ AndroidSchedulers.mainThread()}
     single<Scheduler>(BACKGROUND_SCHEDULER){ Schedulers.io()}
-    single<PopularTvShowsPresenter>{ PopularTvShowsPresenter(get(),get(MAIN_SCHEDULER),get(BACKGROUND_SCHEDULER)) }
+    factory<PopularTvShowsPresenter>{ PopularTvShowsPresenter(get(),get(MAIN_SCHEDULER),get(BACKGROUND_SCHEDULER)) }
 
 
 
