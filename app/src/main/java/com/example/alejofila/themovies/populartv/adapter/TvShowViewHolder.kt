@@ -43,9 +43,10 @@ class TvShowViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             }
 
 
-
-
         }
+    }
+    fun clear(){
+        itemView.item_poster_post.setImageDrawable(null)
     }
 
 }

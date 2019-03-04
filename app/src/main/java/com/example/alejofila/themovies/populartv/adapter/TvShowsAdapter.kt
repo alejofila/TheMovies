@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.alejofila.newsdemo.common.uimodel.TvShowUiModel
 import com.example.alejofila.themovies.R
+import com.squareup.picasso.Picasso
 
 class TvShowsAdapter : RecyclerView.Adapter<TvShowViewHolder>() {
 
@@ -33,5 +34,8 @@ class TvShowsAdapter : RecyclerView.Adapter<TvShowViewHolder>() {
         notifyItemRangeInserted(currentSize, countSize)
     }
 
-
+    override fun onViewRecycled(holder: TvShowViewHolder?) {
+        super.onViewRecycled(holder)
+        holder?.clear()
+    }
 }
