@@ -31,12 +31,17 @@ class PopularTvShowsPresenter(
                 .toList()
                 .subscribeBy(
                     onError = {
-                        Log.e("Tag","Error in presenter onSubscribe $it.message")
+                        Log.e("Tag", "Error in presenter onSubscribe $it.message")
                         view.showServerError()
                     },
                     onSuccess = {
-                        view.showNextPageOfShows(it)
-                        page++
+                        if (it.isEmpty()) {
+                            view.showEmptyView()
+                        } else {
+                            view.showNextPageOfShows(it)
+                            page++
+                        }
+
                     }
 
                 ))

@@ -6,4 +6,5 @@ interface PopularTvShowsView{
     fun showNextPageOfShows(shows: List<TvShowUiModel>)
     fun showNoMoreShowsMessage()
     fun showServerError()
+    fun showEmptyView()
 }

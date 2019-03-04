@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import android.widget.Toast
 import com.alejofila.newsdemo.common.uimodel.TvShowUiModel
 import com.example.alejofila.themovies.R
@@ -52,5 +53,10 @@ class MainActivity : AppCompatActivity(), PopularTvShowsView {
     override fun showServerError() {
         Toast.makeText(this,R.string.server_error,Toast.LENGTH_SHORT)
             .show()
+    }
+    override fun showEmptyView() {
+        empty_view.visibility = View.VISIBLE
+        recycler.visibility = View.GONE
+
     }
 }
